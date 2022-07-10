@@ -1,0 +1,46 @@
+.App {
+  background: black;
+  min-height: 100vh;
+  color: white;
+}
+
+.city {
+  color: black;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  .city__input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  input {
+    width: 30%;
+  }
+  button {
+    margin: 5px;
+  }
+}
+
+.time {
+  color: black;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  .time_input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  input {
+    width: 30%;
+  }
+  button {
+    margin: 5px;
+  }
+}
+
+.forecast__btn {
+  text-transform: uppercase;
+  text-align: center;
+}
