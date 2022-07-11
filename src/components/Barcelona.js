@@ -38,6 +38,27 @@ const Barcelona = ({ info, setInfo }) => {
     console.log(city_info);
   };
 
+  // Setting Button
+  let button;
+  if (
+    info?.temp_Barcelona === temp_Barcelona &&
+    info?.pressure_Barcelona === pressure_Barcelona &&
+    info?.humidity_Barcelona === humidity_Barcelona &&
+    info?.wind_speed_Barcelona === wind_speed_Barcelona
+  ) {
+    button = (
+      <button disabled className='btn btn-md btn-secondary'>
+        SUBMITTED
+      </button>
+    );
+  } else {
+    button = (
+      <button onClick={handleClick} className='btn btn-md btn-primary'>
+        SUBMIT
+      </button>
+    );
+  }
+
   return (
     <div className='city card'>
       <h2 className='city__title text-center'>Barcelona</h2>
@@ -83,10 +104,7 @@ const Barcelona = ({ info, setInfo }) => {
           }
         />
       </div>
-
-      <button onClick={handleClick} className='btn btn-md btn-primary'>
-        Submit
-      </button>
+      {button}
     </div>
   );
 };

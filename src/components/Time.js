@@ -36,6 +36,27 @@ export default function Time({ info, setInfo }) {
     console.log(time_info);
   };
 
+  // Setting Button
+  let button;
+  if (
+    info?.Year === Year &&
+    info.Day === Day &&
+    info?.Month === Month &&
+    info.Hour === Hour
+  ) {
+    button = (
+      <button disabled className='btn btn-md btn-secondary'>
+        SUBMITTED
+      </button>
+    );
+  } else {
+    button = (
+      <button onClick={handleClick} className='btn btn-md btn-primary'>
+        SUBMIT
+      </button>
+    );
+  }
+
   return (
     <div className='time card'>
       <h2 className='text-center'> Time Info</h2>
@@ -72,9 +93,7 @@ export default function Time({ info, setInfo }) {
           onChange={(e) => setHour(parseFloat(e.target.value) || 0)}
         />
       </div>
-      <button onClick={handleClick} className='btn btn-md btn-primary'>
-        Submit
-      </button>
+      {button}
     </div>
   );
 }

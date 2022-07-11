@@ -38,6 +38,27 @@ const Madrid = ({ info, setInfo }) => {
     console.log(city_info);
   };
 
+  // Setting Button
+  let button;
+  if (
+    info?.temp_Madrid === temp_Madrid &&
+    info?.pressure_Madrid === pressure_Madrid &&
+    info?.humidity_Madrid === humidity_Madrid &&
+    info?.wind_speed_Madrid === wind_speed_Madrid
+  ) {
+    button = (
+      <button disabled className='btn btn-md btn-secondary'>
+        SUBMITTED
+      </button>
+    );
+  } else {
+    button = (
+      <button onClick={handleClick} className='btn btn-md btn-primary'>
+        SUBMIT
+      </button>
+    );
+  }
+
   return (
     <div className='city card'>
       <h2 className='city__title text-center'>Madrid</h2>
@@ -80,9 +101,7 @@ const Madrid = ({ info, setInfo }) => {
         />
       </div>
 
-      <button onClick={handleClick} className='btn btn-md btn-primary'>
-        Submit
-      </button>
+      {button}
     </div>
   );
 };

@@ -38,6 +38,27 @@ const Valencia = ({ info, setInfo }) => {
     console.log(city_info);
   };
 
+  // Setting Button
+  let button;
+  if (
+    info?.temp_Valencia === temp_Valencia &&
+    info?.pressure_Valencia === pressure_Valencia &&
+    info?.humidity_Valencia === humidity_Valencia &&
+    info?.wind_speed_Valencia === wind_speed_Valencia
+  ) {
+    button = (
+      <button disabled className='btn btn-md btn-secondary'>
+        SUBMITTED
+      </button>
+    );
+  } else {
+    button = (
+      <button onClick={handleClick} className='btn btn-md btn-primary'>
+        SUBMIT
+      </button>
+    );
+  }
+
   return (
     <div className='city card'>
       <h2 className='city__title text-center'>Valencia</h2>
@@ -83,10 +104,7 @@ const Valencia = ({ info, setInfo }) => {
           }
         />
       </div>
-
-      <button onClick={handleClick} className='btn btn-md btn-primary'>
-        Submit
-      </button>
+      {button}
     </div>
   );
 };

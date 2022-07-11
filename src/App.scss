@@ -1,11 +1,18 @@
 .App {
-  background: black;
-  min-height: 100vh;
   color: white;
+  background-image: url("./images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .app__overlay {
+    background: rgba(0, 0, 0, 0.516);
+    min-height: 100vh;
+  }
 }
 
 .city {
   color: black;
+  background-color: rgba(255, 255, 255, 0.641);
   width: 100%;
   padding: 5px;
   margin: 5px;
@@ -23,6 +30,7 @@
 }
 
 .time {
+  background-color: rgba(255, 255, 255, 0.641);
   color: black;
   width: 100%;
   padding: 5px;
@@ -43,4 +51,28 @@
 .forecast__btn {
   text-transform: uppercase;
   text-align: center;
+}
+
+.resultModal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-image: url("./images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  scroll-behavior: inherit;
+  .result {
+    background: white;
+    color: black;
+    padding: 3rem;
+    border-radius: 10px;
+  }
 }

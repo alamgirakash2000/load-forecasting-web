@@ -38,6 +38,27 @@ const Bilbao = ({ info, setInfo }) => {
     console.log(city_info);
   };
 
+  // Setting Button
+  let button;
+  if (
+    info?.temp_Bilbao === temp_Bilbao &&
+    info?.pressure_Bilbao === pressure_Bilbao &&
+    info?.humidity_Bilbao === humidity_Bilbao &&
+    info?.wind_speed_Bilbao === wind_speed_Bilbao
+  ) {
+    button = (
+      <button disabled className='btn btn-md btn-secondary'>
+        SUBMITTED
+      </button>
+    );
+  } else {
+    button = (
+      <button onClick={handleClick} className='btn btn-md btn-primary'>
+        SUBMIT
+      </button>
+    );
+  }
+
   return (
     <div className='city card'>
       <h2 className='city__title text-center'>Bilbao</h2>
@@ -80,9 +101,7 @@ const Bilbao = ({ info, setInfo }) => {
         />
       </div>
 
-      <button onClick={handleClick} className='btn btn-md btn-primary'>
-        Submit
-      </button>
+      {button}
     </div>
   );
 };

@@ -38,6 +38,27 @@ const Seville = ({ info, setInfo }) => {
     console.log(city_info);
   };
 
+  // Setting Button
+  let button;
+  if (
+    info?.temp_Seville === temp_Seville &&
+    info?.pressure_Seville === pressure_Seville &&
+    info?.humidity_Seville === humidity_Seville &&
+    info?.wind_speed_Seville === wind_speed_Seville
+  ) {
+    button = (
+      <button disabled className='btn btn-md btn-secondary'>
+        SUBMITTED
+      </button>
+    );
+  } else {
+    button = (
+      <button onClick={handleClick} className='btn btn-md btn-primary'>
+        SUBMIT
+      </button>
+    );
+  }
+
   return (
     <div className='city card'>
       <h2 className='city__title text-center'>Seville</h2>
@@ -80,9 +101,7 @@ const Seville = ({ info, setInfo }) => {
         />
       </div>
 
-      <button onClick={handleClick} className='btn btn-md btn-primary'>
-        Submit
-      </button>
+      {button}
     </div>
   );
 };
