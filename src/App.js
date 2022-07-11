@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.scss";
 import WeatherInfo from "./components/WeatherInfo";
-import bgImages from "./images/bg.jpg";
 
 function App() {
   const [info, setInfo] = useState({});
@@ -10,7 +9,7 @@ function App() {
     <div className='App'>
       <div className='app__overlay'>
         <div className='d-none'>
-          <img src={bgImages} alt='Load Consumption Forecasting' />
+          <img src='%PUBLIC_URL%/bg.jpg' alt='Load Consumption Forecasting' />
         </div>
         <h1 className='text-center py-4'>
           Hourly Load Consumption Forecasting Using Weather and Time info
