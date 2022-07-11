@@ -9,6 +9,9 @@ function App() {
   return (
     <div className='App'>
       <div className='app__overlay'>
+        <div className='d-none'>
+          <img src={bgImages} alt='Load Consumption Forecasting' />
+        </div>
         <h1 className='text-center py-4'>
           Hourly Load Consumption Forecasting Using Weather and Time info
         </h1>
