@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Loading from "./Loading";
 import Time from "./Time";
 import Barcelona from "./Barcelona";
 import Bilbao from "./Bilbao";
@@ -12,10 +13,15 @@ export default function WeatherInfo() {
   const [info, setInfo] = useState({});
   const [result, setResult] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleClick = () => {
-    Axios.post("/predict", info).then((res) => setResult(res.data.message));
+  const handleClick = async () => {
+    setLoading(true);
+    await Axios.post("/predict", info).then((res) =>
+      setResult(res.data.message)
+    );
     setShowModal(true);
+    setLoading(false);
   };
 
   let submitButton;
@@ -44,6 +50,7 @@ export default function WeatherInfo() {
 
   return (
     <div className='text-center'>
+      {loading && <Loading />}
       <div className='container'>
         <div className='row'>
           <div className='col-md-4'>
